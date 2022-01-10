@@ -132,11 +132,12 @@ public class SchoolDAO {
 
             updatedRows = updateRentalStatusStmt.executeUpdate();
             if (updatedRows != 1) {
+               //failureMsg=String.valueOf(updatedRows);
                 handleException(failureMsg, null);
             }
 
             connection.commit();
-           /* System.out.println("You have successfully terminated the rental!");*/
+            System.out.println("You have successfully terminated the rental!");
         }
 
         catch(SQLException sqle){
@@ -160,7 +161,7 @@ public class SchoolDAO {
 
     private boolean instrumentIdExists(int instrumentId) throws SQLException{
         instrumentExistsStmt.setInt(1, instrumentId);
-        ResultSet result = studentExistsStmt.executeQuery();
+        ResultSet result = instrumentExistsStmt.executeQuery();
         result.next();
         return result.getInt(1)==1;
     }
@@ -187,7 +188,7 @@ public class SchoolDAO {
 
         updateRentalHistoryStmt = connection.prepareStatement("INSERT INTO " + RENTAL_TABLE_NAME + " (rental_status, student_id, instrument_id) VALUES (?, ?, ?)");
 
-        updateRentalStatusStmt = connection.prepareStatement("UPDATE " + RENTAL_TABLE_NAME + " SET " + RENTAL_STATUS_COLUMN_NAME + "='terminated' WHERE instrument_id" + " = ?");
+        updateRentalStatusStmt = connection.prepareStatement("UPDATE " + RENTAL_TABLE_NAME + " SET " + RENTAL_STATUS_COLUMN_NAME + "='terminated' WHERE instrument_id" + " = ? AND rental_status='ongoing'");
     }
 
     private void handleException(String failureMsg, Exception cause) throws SchoolDBException {
