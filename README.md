@@ -17,4 +17,4 @@ task3.sql
 ## Task 4
 
 jdbc-bank  
-NOTE: jdbc-bank/src/main/java/se/kth/iv1351 contains **bankjdbc** which is teacher's examle code and **smsjdbc** which is our solution for task 4
+**NOTE:** jdbc-bank/src/main/java/se/kth/iv1351 contains **bankjdbc** which is teacher's examle code and **smsjdbc** which is our solution for task 4
