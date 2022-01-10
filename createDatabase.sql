@@ -112,14 +112,15 @@ ALTER TABLE instrument ADD CONSTRAINT PK_instrument PRIMARY KEY (id);
 CREATE TABLE lesson (
  id INT NOT NULL,
  skill_level VARCHAR(50) NOT NULL,
- minimum_numer_of_students INT,
- maximum_nuber_of_students INT,
+ minimum_number_of_students INT,
+ maximum_number_of_students INT,
  number_of_students INT NOT NULL,
- genre VARCHAR(50) NOT NULL,
+ genre VARCHAR(50),
  price INT NOT NULL,
- date TIMESTAMP(6) NOT NULL,
- time TIMESTAMP(6) NOT NULL,
- instructor_id INT NOT NULL
+ instructor_id INT NOT NULL,
+ lesson_type VARCHAR(50) NOT NULL,
+ instrument_type VARCHAR(50),
+ date TIMESTAMP(6) NOT NULL
 );
 
 ALTER TABLE lesson ADD CONSTRAINT PK_lesson PRIMARY KEY (id);
@@ -229,5 +230,3 @@ ALTER TABLE student_lesson ADD CONSTRAINT FK_student_lesson_1 FOREIGN KEY (lesso
 
 ALTER TABLE instructor_instrument ADD CONSTRAINT FK_instructor_instrument_0 FOREIGN KEY (instructor_id) REFERENCES instructor (id);
 ALTER TABLE instructor_instrument ADD CONSTRAINT FK_instructor_instrument_1 FOREIGN KEY (instrument_id) REFERENCES instrument (id);
-
-

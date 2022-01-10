@@ -2841,7 +2841,6 @@ insert into student_lesson (student_id, lesson_id) values (3, 912);
 insert into student_lesson (student_id, lesson_id) values (7, 913);
 insert into student_lesson (student_id, lesson_id) values (20, 914);
 insert into student_lesson (student_id, lesson_id) values (13, 915);
-insert into student_lesson (student_id, lesson_id) values (22, 916);
 insert into student_lesson (student_id, lesson_id) values (5, 917);
 insert into student_lesson (student_id, lesson_id) values (6, 918);
 insert into student_lesson (student_id, lesson_id) values (15, 919);
@@ -2939,10 +2938,3 @@ insert into rental (id, rental_status, student_id, instrument_id) values (9, 'on
 insert into rental (id, rental_status, student_id, instrument_id) values (10, 'ongoing', 10, 15);
 
 ALTER TABLE rental MODIFY COLUMN id INT auto_increment;
-
-
-
-
-
-
-
